@@ -1,10 +1,43 @@
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createContext, useEffect, useState } from "react";
+import app from "../../Firebse/Firebase";
+import { onAuthStateChanged } from "firebase/auth/cordova";
 
+export const AuthContext = createContext(null)
+const auth = getAuth(app)
+const AuthProvider = ({ children }) => {
 
-const AuthProvider = () => {
+    const [user, setUser] = useState(null)
+    const createUser = (email, password) => {
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
+     const signIn =(email,password)=>{
+        return signInWithEmailAndPassword(auth,email,password)
+     }
+     const logOut=()=>{
+        return signOut(auth)
+     }
+
+    useEffect(()=>{
+ const unSubscribe = onAuthStateChanged(auth,currentUser=>{
+    console.log('user in the auth state change ',currentUser)
+    setUser(currentUser)
+})
+return()=>{
+    unSubscribe()
+}
+    },[])
+
+    const authInfo = {
+        user,
+        createUser,
+        signIn,
+        logOut
+    }
     return (
-        <div>
-            
-        </div>
+        <AuthContext.Provider value={authInfo}>
+            {children}
+        </AuthContext.Provider>
     );
 };
 
