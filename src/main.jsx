@@ -12,6 +12,9 @@ import Homes from './Component/Homes/Homes';
 import Login from './Component/Login/Login';
 import Ragestration from './Component/Regestration/Ragestration';
 import AuthProvider from './AuthProvider.jsx/AuthProvider';
+import Contacts from './Component/Contacts/Contacts';
+import Aboutus from './Component/AboutUs/Aboutus';
+import AddturestSport from './Component/AddTurestSpots/AddturestSport';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,19 +36,19 @@ const router = createBrowserRouter([
         path:'/register',
         element:<Ragestration></Ragestration>
     },
-    // {
-    //     path:'/aboutUs',
-    //     element:
-    // },
-    // {
-    //     path:'/contacts',
-    //     element:
+    {
+        path:'/aboutUs',
+        element:<Aboutus></Aboutus>
+    },
+    {
+        path:'/contacts',
+        element:<Contacts></Contacts>
 
-    // },
-    // {
-    //     path:'/feedback',
-    //     element:
-    // }, 
+    },
+    {
+        path:'/addturest',
+        element:<AddturestSport></AddturestSport>
+    }
     ]
   },
 ]);
