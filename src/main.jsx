@@ -15,6 +15,7 @@ import AuthProvider from './AuthProvider.jsx/AuthProvider';
 import Contacts from './Component/Contacts/Contacts';
 import Aboutus from './Component/AboutUs/Aboutus';
 import AddturestSport from './Component/AddTurestSpots/AddturestSport';
+import MyList from './Component/MyList/MyList';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -48,6 +49,9 @@ const router = createBrowserRouter([
     {
         path:'/addturest',
         element:<AddturestSport></AddturestSport>
+    },{
+      path:'/myList',
+      element:<MyList></MyList>
     }
     ]
   },

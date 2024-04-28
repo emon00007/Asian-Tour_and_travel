@@ -89,6 +89,7 @@ const AddturestSport = () => {
       const handelAddTurest =e=> {
         e.preventDefault();
         const form = e.target;
+        console.log(user)
         const spotName = form.spotName.value;
         const userName = user ? user.name : "Unknown";
         const email = user ? user.email : "Unknown";
