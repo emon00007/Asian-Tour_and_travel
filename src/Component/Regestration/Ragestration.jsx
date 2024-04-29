@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
 import { Helmet } from "react-helmet";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider.jsx/AuthProvider";
 
 
 const Ragestration = () => {
+    const navigate =useNavigate()
     const {createUser} =useContext(AuthContext)
     const [showPassword, setShowpassword] = useState(false);
     const handelarRegester = e=>{
@@ -20,6 +21,7 @@ const Ragestration = () => {
         createUser(email,password)
         .then(result=>{
             console.log(result.user)
+            navigate(location?.state?location.state:"/")
         })
         .catch(error=>{
             console.error(error)
@@ -61,7 +63,7 @@ const Ragestration = () => {
                 <div className="relative">
                   <input
                     className="input input-bordered w-full py-2 px-4"
-                    // type={showPassword ? "text" : "password"}
+                    type={showPassword ? "text" : "password"}
                     placeholder="Enter Your Password"
                     name="password"
                     id=""
@@ -69,6 +71,7 @@ const Ragestration = () => {
                   />
                   <span
                     className="absolute top-4 right-2 cursor-pointer"
+                    onClick={() => setShowpassword(!showPassword)}
                     
                   >
                     {showPassword ? (

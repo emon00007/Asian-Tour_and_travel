@@ -18,6 +18,7 @@ import AddturestSport from './Component/AddTurestSpots/AddturestSport';
 import MyList from './Component/MyList/MyList';
 import Detailspage from './Component/DetailsPage/Detailspage';
 import UpdatePost from './Component/UpdatePost/UpdatePost';
+import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,7 +54,9 @@ const router = createBrowserRouter([
         element:<AddturestSport></AddturestSport>
     },{
       path:'/myList',
-      element:<MyList></MyList>
+      element:(<PrivateRoute>
+        <MyList></MyList>
+      </PrivateRoute>)
     },{
       path:'/detailsPage/:id',
       element:<Detailspage></Detailspage>

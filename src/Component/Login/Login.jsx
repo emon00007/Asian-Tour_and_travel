@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider.jsx/AuthProvider";
 
 
 const Login = () => {
+    const navigate =useNavigate()
     const {signIn}=useContext(AuthContext)
     const handelLogin = e => {
        
@@ -19,6 +20,7 @@ const Login = () => {
         signIn(email, password)
           .then(result => {
             console.log(result.user)
+            navigate(location?.state?location.state:"/")
           })
           .catch(error => {
             console.error(error)
@@ -68,7 +70,7 @@ const Login = () => {
                 <button className="btn  btn-ghost border border-black " ><FaGoogle className="text-2xl"></FaGoogle>LogIn with Google </button>
                 <button className="btn btn-ghost border border-black " ><FaGithub className="text-2xl"></FaGithub>LogIn with Github </button>
               </div>
-              <div className="text-center py-5"><p>Do not Have an Account <Link className="text-blue-600" to="/register">Register</Link></p></div>
+              <div className="text-center py-5"><p>Do not Have an Account <Link className="text-blue-600" to="/register">Log In</Link></p></div>
             </div>
           </div>
         </div>

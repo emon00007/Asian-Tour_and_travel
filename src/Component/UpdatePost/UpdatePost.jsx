@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Swal from 'sweetalert2'
 const UpdatePost = () => {
     const { id } = useParams(); 
@@ -286,11 +286,14 @@ const UpdatePost = () => {
                           placeholder="Photo Url"
                           type="text"
                       />
-                      <input
+                     
+                    
+                      <input 
                           type="submit"
                           value="Add Tourist Spot"
                           className="btn text-black hover:text-white bg-[#00ffa6] w-full"
                       />
+                     
                   </div>
               </form>
           </div>  
