@@ -21,6 +21,7 @@ import UpdatePost from './Component/UpdatePost/UpdatePost';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AllDataSection from './Component/AllDataSection/AllDataSection';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -55,12 +56,17 @@ const router = createBrowserRouter([
     },
     {
         path:'/addturest',
-        element:<AddturestSport></AddturestSport>
+        element:<AddturestSport></AddturestSport>,
+        
     },{
       path:'/myList',
       element:(<PrivateRoute>
         <MyList></MyList>
       </PrivateRoute>)
+    },{
+      path:'/allDataShow',
+      element:<AllDataSection></AllDataSection>,
+      loader: ()=>fetch('http://localhost:5000/addTouristSpot')
     },{
       path:'/detailsPage/:id',
       element:<Detailspage></Detailspage>

@@ -1,25 +1,10 @@
 import { Link, useLoaderData } from 'react-router-dom';
-import Banner from '../BannerSection/Banner';
-// import { useEffect, useState } from 'react';
 
-const Homes = () => {
-   
-    const cards = useLoaderData().slice(0,6);
-    // const [cards, setCards] = useState()
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/addTouristSpot')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setCards(data)
-    //         })
-    // }, [])
-    console.log(cards)
+const AllDataSection = () => {
+    const cards = useLoaderData()
     return (
-        <div>
-            <Banner />
-            <div className=" mt-5 grid lg:grid-cols-3 md:grid-cols-2">
-                
-                {Array.isArray(cards) && cards.map(card => (
+        <div className=" mt-5 grid lg:grid-cols-3 md:grid-cols-2">
+                            {Array.isArray(cards) && cards.map(card => (
                     <div key={card._id}>
 
 
@@ -56,10 +41,8 @@ const Homes = () => {
 
                 ))
                 }
-            </div>
-
-        </div >
+        </div>
     );
 };
 
-export default Homes;
+export default AllDataSection;
