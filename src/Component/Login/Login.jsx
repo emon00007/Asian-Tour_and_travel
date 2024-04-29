@@ -3,13 +3,20 @@ import { Helmet } from "react-helmet";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider.jsx/AuthProvider";
+import { getAuth, signInWithPopup } from "firebase/auth";
+import { toast } from "react-toastify";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import app from "../../../Firebse/Firebase";
 
 
 const Login = () => {
     const navigate =useNavigate()
     const {signIn}=useContext(AuthContext)
+    const auth = getAuth(app)
+    const googProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
     const handelLogin = e => {
-       
+        // navigate('/')
         e.preventDefault()
         console.log('yeah hu hu')
         console.log(e.currentTarget)
@@ -25,6 +32,34 @@ const Login = () => {
           .catch(error => {
             console.error(error)
           })
+      }
+
+      const handleGithubSignIn = async () => {
+        try {
+          const result = await signInWithPopup(auth, githubProvider);
+          const user = result.user;
+          console.log(user);
+          toast.success('Sign in successful!');
+          setTimeout(() => {
+            navigate(location?.state ? location.state : "/");
+          }, 1000);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+
+      const handleGoogleSignIn = async () => {
+        try {
+          const result = await signInWithPopup(auth, googProvider);
+          const user = result.user;
+          console.log(user);
+          toast.success('Sign in successful!');
+          setTimeout(() => {
+            navigate(location?.state ? location.state : "/");
+          }, 1000);
+        } catch (error) {
+          console.error(error);
+        }
       }
     return (
         <div>
@@ -61,16 +96,16 @@ const Login = () => {
                 </div>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">register</button>
+                <button className="btn btn-primary">Log In</button>
               </div>
 
             </form>
               
               <div className="p-5 flex justify-around gap-4 lg:flex-row md:flex-col flex-col">
-                <button className="btn  btn-ghost border border-black " ><FaGoogle className="text-2xl"></FaGoogle>LogIn with Google </button>
-                <button className="btn btn-ghost border border-black " ><FaGithub className="text-2xl"></FaGithub>LogIn with Github </button>
+                <button className="btn  btn-ghost border border-black " onClick={handleGoogleSignIn} ><FaGoogle className="text-2xl"></FaGoogle>LogIn with Google </button>
+                <button className="btn btn-ghost border border-black " onClick={handleGithubSignIn} ><FaGithub className="text-2xl"></FaGithub>LogIn with Github </button>
               </div>
-              <div className="text-center py-5"><p>Do not Have an Account <Link className="text-blue-600" to="/register">Log In</Link></p></div>
+              <div className="text-center py-5"><p>Do not Have an Account <Link className="text-blue-600" to="/register">Regester</Link></p></div>
             </div>
           </div>
         </div>

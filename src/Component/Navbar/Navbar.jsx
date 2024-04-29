@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 
@@ -12,6 +12,24 @@ import { AuthContext } from "../../AuthProvider.jsx/AuthProvider";
 const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext)
+const [theme,setTheme]=useState('light')
+console.log(user)
+  const handleToggle = e => {
+   
+    if (e.target.checked) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+    const localTheme = localStorage.getItem('theme')
+
+    // add custom data-theme attribute
+    document.querySelector('html').setAttribute('data-theme', localTheme)
+  }, [theme])
+
   const handelSignOut = () => {
     
     logOut()
@@ -57,9 +75,13 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <div tabIndex={0}  className=" text-4xl  "  >
-        
-          {/* <div className="w-10 h-10 rounded-full mr-4 tooltip tooltip-left "data-tip={user?.displayName}> */}
-            <CgProfile className="text-3xl"></CgProfile> 
+        <input
+            type='checkbox'
+            onChange={handleToggle}
+            className='toggle theme-controller bg-base-content row-start-1 col-start-1 col-span-2'
+          />
+          <div className="w-10 h-10 rounded-full mr-4 tooltip tooltip-left "data-tip={user?.displayName}>
+          {user && <img className="w-16 h-10 rounded-full "  alt="#" src={user.photoURL } />|| <CgProfile className="text-3xl"></CgProfile> }
           </div>
         </div>
         
@@ -69,6 +91,7 @@ const Navbar = () => {
         }
         
 
+      </div>
       </div>
     
   );

@@ -19,6 +19,8 @@ import MyList from './Component/MyList/MyList';
 import Detailspage from './Component/DetailsPage/Detailspage';
 import UpdatePost from './Component/UpdatePost/UpdatePost';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,7 +30,9 @@ const router = createBrowserRouter([
       {   
                 
         path:'/',
-        element:<Homes></Homes>
+        element:<Homes></Homes>,
+        
+        loader: ()=>fetch('http://localhost:5000/addTouristSpot')
         
       
     },
@@ -72,6 +76,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
+    <ToastContainer></ToastContainer>
       <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>,
