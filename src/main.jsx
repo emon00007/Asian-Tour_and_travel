@@ -16,6 +16,8 @@ import Contacts from './Component/Contacts/Contacts';
 import Aboutus from './Component/AboutUs/Aboutus';
 import AddturestSport from './Component/AddTurestSpots/AddturestSport';
 import MyList from './Component/MyList/MyList';
+import Detailspage from './Component/DetailsPage/Detailspage';
+import UpdatePost from './Component/UpdatePost/UpdatePost';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -52,6 +54,13 @@ const router = createBrowserRouter([
     },{
       path:'/myList',
       element:<MyList></MyList>
+    },{
+      path:'/detailsPage/:id',
+      element:<Detailspage></Detailspage>
+    },{
+      path:'/updatePost/:id',
+      element:<UpdatePost></UpdatePost>,
+      loader : (params) => fetch(`http://localhost:5000/updatePost/${params.id}`)
     }
     ]
   },
