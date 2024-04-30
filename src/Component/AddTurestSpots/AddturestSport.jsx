@@ -116,7 +116,7 @@ const AddturestSport = () => {
             photoUrl,
         };
         console.log(newAddTouristSpot)
-        fetch('http://localhost:5000/addTouristSpot',{
+        fetch('https://ashan-tour-and-travel-server.vercel.app/addTouristSpot',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

@@ -14,14 +14,14 @@ const MyList = () => {
     const [control, setcontrol] = useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myList/${user?.email}`)
+        fetch(`https://ashan-tour-and-travel-server.vercel.app/myList/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setItem(data)
             })
     }, [user, control])
     const handelDelete = (id) => {
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://ashan-tour-and-travel-server.vercel.app/delete/${id}`, {
             method: "DELETE"
         })
             .then(res => res.json())

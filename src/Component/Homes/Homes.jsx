@@ -7,7 +7,7 @@ const Homes = () => {
     const cards = useLoaderData().slice(0,6);
     // const [cards, setCards] = useState()
     // useEffect(() => {
-    //     fetch('http://localhost:5000/addTouristSpot')
+    //     fetch('https://ashan-tour-and-travel-server.vercel.app/addTouristSpot')
     //         .then(res => res.json())
     //         .then(data => {
     //             setCards(data)

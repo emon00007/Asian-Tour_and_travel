@@ -33,7 +33,7 @@ const router = createBrowserRouter([
         path:'/',
         element:<Homes></Homes>,
         
-        loader: ()=>fetch('http://localhost:5000/addTouristSpot')
+        loader: ()=>fetch('https://ashan-tour-and-travel-server.vercel.app/addTouristSpot')
         
       
     },
@@ -66,14 +66,14 @@ const router = createBrowserRouter([
     },{
       path:'/allDataShow',
       element:<AllDataSection></AllDataSection>,
-      loader: ()=>fetch('http://localhost:5000/addTouristSpot')
+      loader: ()=>fetch('https://ashan-tour-and-travel-server.vercel.app/addTouristSpot')
     },{
       path:'/detailsPage/:id',
       element:<Detailspage></Detailspage>
     },{
       path:'/updatePost/:id',
       element:<UpdatePost></UpdatePost>,
-      loader : (params) => fetch(`http://localhost:5000/updatePost/${params.id}`)
+      loader : (params) => fetch(`https://ashan-tour-and-travel-server.vercel.app/updatePost/${params.id}`)
     }
     ]
   },

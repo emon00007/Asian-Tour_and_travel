@@ -110,7 +110,7 @@ const UpdatePost = () => {
             photoUrl,
         };
         console.log(updatePost)
-        fetch(`http://localhost:5000/updatePost/${id}`,{
+        fetch(`https://ashan-tour-and-travel-server.vercel.app/updatePost/${id}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

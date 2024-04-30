@@ -7,7 +7,7 @@ const Detailspage = () => {
     const [spotDet, setSpotDet] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/spotDetails/${id}`)
+        fetch(`https://ashan-tour-and-travel-server.vercel.app/spotDetails/${id}`)
             .then(res => res.json())
             .then(data => {
                 setSpotDet(data);
