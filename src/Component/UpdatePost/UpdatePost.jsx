@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import {  useParams } from "react-router-dom";
 import Swal from 'sweetalert2'
 const UpdatePost = () => {
@@ -129,6 +130,7 @@ const UpdatePost = () => {
     }
     return (
         <div>
+            <Helmet>UpdatePage</Helmet>
         <div className="p-10">
               <form
                onSubmit={handelUpdate}

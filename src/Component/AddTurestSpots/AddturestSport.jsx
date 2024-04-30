@@ -1,5 +1,6 @@
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2'
 
 const AddturestSport = () => {
@@ -138,6 +139,7 @@ const AddturestSport = () => {
 
     return (
         <div>
+            <Helmet>AddturestSport</Helmet>
         <div className="p-10">
               <form
                onSubmit={handelAddTurest}

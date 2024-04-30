@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useParams } from "react-router-dom";
 
 const Detailspage = () => {
@@ -16,6 +17,7 @@ const Detailspage = () => {
 
     return (
         <div>
+            <Helmet>DetailsPage</Helmet>
            <div className="hero rounded-xl bg-amber-50  ">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left w-1/2">

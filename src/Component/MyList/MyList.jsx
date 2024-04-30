@@ -3,6 +3,7 @@ import { AuthContext } from "../../AuthProvider.jsx/AuthProvider";
 import { Link } from "react-router-dom";
 
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const MyList = () => {
@@ -37,6 +38,7 @@ const MyList = () => {
 
     return (
         <div >
+            <Helmet>MyList</Helmet>
             <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
                 <h2 className="mb-4 text-2xl font-semibold leading-tight">Contacts</h2>
                 <div className="overflow-x-auto">
