@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import 'animate.css';
-
+import { Fade } from "react-awesome-reveal";
 const Aboutus = () => {
     return (
         <div className="text-white">
@@ -9,13 +9,14 @@ const Aboutus = () => {
             <div className="flex flex-col lg:flex-row justify-between gap-8">
                 <div className="w-full lg:w-5/12 flex flex-col justify-center">
                     <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4">About Us</h1>
-                    <p className="font-normal text-base leading-6 text-gray-600 ">We want to introduce you and our customers to the most beautiful places in the world. Let's discover the new world. Now is the time to spread yourself out. Why get out now?</p>
+                    <p className="font-normal text-base leading-6 text-gray-600 ">We want to introduce you and our customers to the most beautiful places in the world. Lets discover the new world. Now is the time to spread yourself out. Why get out now?</p>
                 </div>
                 <div className="w-full lg:w-8/12 ">
                     <img className="w-full h-full" src="https://i.ibb.co/tH27dZ0/travel-agencies-in-oman.jpg" alt="A group of People" />
                 </div>
             </div>
 
+            <Fade>
             <div className="flex lg:flex-row flex-col justify-between gap-8 pt-12">
                 <div className="w-full lg:w-5/12 flex flex-col justify-center">
                     <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 pb-4">Our Client</h1>
@@ -48,6 +49,7 @@ const Aboutus = () => {
                     </div>
                 </div>
             </div>
+            </Fade>
         </div>
         </div>
     );
