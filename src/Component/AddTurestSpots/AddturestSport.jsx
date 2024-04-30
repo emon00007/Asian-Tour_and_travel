@@ -92,7 +92,7 @@ const AddturestSport = () => {
         const form = e.target;
         console.log(user)
         const spotName = form.spotName.value;
-        const userName = user ? user.name : "Unknown";
+        const userName = user ? user.displayName: "Unknown";
         const email = user ? user.email : "Unknown";
         const countryName = form.countryName.value;
         const seassonality = form.seassonality.value;
@@ -159,7 +159,7 @@ const AddturestSport = () => {
                                   className="input input-bordered join-item w-full"
                                   onChange={handleCountryChange}
                                   name="countryName"
-                                  // onChange={handleCountryChange}
+                                 
                                   required
                               >
                                   <option value="">Select country</option>

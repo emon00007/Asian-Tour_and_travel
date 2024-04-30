@@ -39,7 +39,7 @@ const MyList = () => {
     return (
         <div >
             <Helmet>MyList</Helmet>
-            <div className="container p-2 mx-auto sm:p-4 dark:text-gray-800">
+            <div className=" p-2  sm:p-4 dark:text-gray-800">
                 <h2 className="mb-4 text-2xl font-semibold leading-tight">Contacts</h2>
                 <div className="overflow-x-auto">
                     <table className="w-full p-6 text-xs text-left whitespace-nowrap">
@@ -93,6 +93,7 @@ const MyList = () => {
                                         <Link to={`/detailsPage/${p?._id}`}>
                                             <button className="btn bg-[#00ffa6]">View Details</button>
                                         </Link>
+                                        <Link to={`/UpdatePost/${p._id}`}><button className="btn bg-[#00ffa6]">Update Spot</button></Link>
                                         <Link ><button onClick ={()=>handelDelete(p._id)}className="btn bg-[#00ffa6]">Delete Spot</button></Link>
                                         </td>
                                     </tr>

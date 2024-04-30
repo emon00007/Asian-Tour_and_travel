@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Ragestration = () => {
     const navigate = useNavigate()
-    const { createUser, setUser } = useContext(AuthContext);
+    const { createUser, setUser,UpdateUser } = useContext(AuthContext);
     const [registerError, setRegisterError] = useState("");
     const [showPassword, setShowpassword] = useState(false);
     const handelarRegester = e => {
@@ -33,27 +33,22 @@ const Ragestration = () => {
         }
         // create user
         createUser(email, password)
-            .then((result) => {
-                console.log(result)
-                // updateUser(
-                //   name,photoUrl
-                // )
-                toast.success("Registration successful!");
-                setUser({ displayName: name, photoURL: photoUrl });
-
-                navigate("/")
-                    // .then(() => {
-
-
-                    // })
-                    .catch((error) => {
-                        setRegisterError(error.message);
-                    });
-            })
-            .catch((error) => {
-                setRegisterError('Email Already exist', error.message);
-            });
-        console.log('button hitted', name, email, photoUrl, password)
+  
+        .then((result) => {
+          console.log(result)
+          UpdateUser(
+            name,photoUrl
+          ).then(() => {
+            toast.success("Registration successful!");
+            setUser({displayName:name,photoURL:photoUrl});
+            navigate('/')
+          }).catch((error) => {
+            setRegisterError(error.message);
+          });
+        })
+        .catch((error) => {
+          setRegisterError('Email Already exist',error.message);
+        });
     }
     return (
         <div className="">

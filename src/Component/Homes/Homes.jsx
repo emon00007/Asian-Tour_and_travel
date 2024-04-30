@@ -43,7 +43,8 @@ const Homes = () => {
                                     <p>Average Cost: {card?.avarageCost}</p>
                                     <p>Travel Time: {card?.travelTime}</p>
                                     <p>Total Visitors Per Year: {card?.totalVisitorPerYear}</p>
-                                    <p>User: {card?.userName} ({card?.email})</p>
+                                    <p>User: {card?.userName} </p>
+                                    <p>User Email: {card?.email} </p>
                                     <div className="card-actions grid grid-cols-3">
                                         <Link to={`/detailsPage/${card._id}`}><button className="btn bg-[#00ffa6]">View Details</button></Link>
                                         {/* <Link to={`/UpdatePost/${p._id}`}><button className="btn bg-[#00ffa6]">Update Spot</button></Link> */}
