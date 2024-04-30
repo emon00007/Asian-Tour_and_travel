@@ -1,15 +1,43 @@
+import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const AllDataSection = () => {
-    const cards = useLoaderData()
+    const cards = useLoaderData();
+    const [sortBy, setSortBy] = useState('lowCost'); // Default sorting option
+
+    // Function to sort the cards based on the selected sorting option
+    const sortCards = () => {
+        if (sortBy === 'lowCost') {
+            return cards.slice().sort((a, b) => a.avarageCost - b.avarageCost);
+        } else if (sortBy === 'highCost') {
+            return cards.slice().sort((a, b) => b.avarageCost - a.avarageCost);
+        }
+    };
+
+    // Handle sorting option change
+    const handleSortChange = (event) => {
+        setSortBy(event.target.value);
+    };
+
+    const sortedCards = sortCards();
+
     return (
-        <div className=" mt-5 grid lg:grid-cols-3 md:grid-cols-2">
-                            {Array.isArray(cards) && cards.map(card => (
+        <div>
+            <Helmet>AllDataSection</Helmet>
+            <div className="mt-5 text-center">
+                
+                <select value={sortBy} onChange={handleSortChange} className="rounded-md border border-gray-300 p-2">
+                    <option value="lowCost">Low Cost</option>
+                    <option value="highCost">High Cost</option>
+                </select>
+            </div>
+            
+            <div className="mt-5 grid lg:grid-cols-3 md:grid-cols-2">
+                {/* Display sorted cards */}
+                {sortedCards.map(card => (
                     <div key={card._id}>
-
-
                         <div className="mb-8 lg:mx-8 md:-2">
-
                             <div className="card h-[800px] glass">
                                 <figure>
                                     <img
@@ -30,17 +58,16 @@ const AllDataSection = () => {
                                     <p>Total Visitors Per Year: {card?.totalVisitorPerYear}</p>
                                     <p>User: {card?.userName} ({card?.email})</p>
                                     <div className="card-actions grid grid-cols-3">
-                                        <Link to={`/detailsPage/${card._id}`}><button className="btn bg-[#00ffa6]">View Details</button></Link>
-                                        {/* <Link to={`/UpdatePost/${p._id}`}><button className="btn bg-[#00ffa6]">Update Spot</button></Link> */}
-                                        {/* <Link ><button onClick ={()=>handelDelete(p._id)}className="btn bg-[#00ffa6]">Delete Spot</button></Link> */}
+                                        <Link to={`/detailsPage/${card._id}`}>
+                                            <button className="btn bg-[#00ffa6]">View Details</button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                ))
-                }
+                ))}
+            </div>
         </div>
     );
 };

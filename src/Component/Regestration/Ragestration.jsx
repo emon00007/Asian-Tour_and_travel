@@ -115,7 +115,7 @@ const Ragestration = () => {
 
                         </form>
 
-                        {registerError && <p className="text-red-600 text-center"></p>}
+                        {registerError && <p className="text-red-600 text-center">{registerError}</p>}
                         <div className="text-center pb-5"><p>You have already an account  <Link className="font-bold  text-blue-600" to="/login">Log In</Link></p></div>
                     </div>
                 </div>

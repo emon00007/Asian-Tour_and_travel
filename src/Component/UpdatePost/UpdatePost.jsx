@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useState } from "react";
+import {  useParams } from "react-router-dom";
 import Swal from 'sweetalert2'
 const UpdatePost = () => {
     const { id } = useParams(); 
-    const [updatepost, setUpdatePost] = useState({});
+    // const [updatepost, setUpdatePost] = useState({});
     const [availableSpots, setAvailableSpots] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState("");
     // useEffect(() => {
