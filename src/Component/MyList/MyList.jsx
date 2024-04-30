@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import { toast } from "react-toastify";
 
 
 const MyList = () => {
@@ -27,6 +28,7 @@ const MyList = () => {
             .then(data => {
                 if (data.deletedCount > 0) { setcontrol(!control) }
                 if(data.insertedId)
+                toast.success("Delete successful!");
                 Swal.fire({
                     title: "Delete success",
                     text: "Do you want to continue",
@@ -39,7 +41,7 @@ const MyList = () => {
     return (
         <div >
             <Helmet>MyList</Helmet>
-            <div className=" p-2  sm:p-4 dark:text-gray-800">
+            <div className=" p-2 lg:mx-auto lg:container md:container sm:p-4 dark:text-gray-800">
                 <h2 className="mb-4 text-2xl font-semibold leading-tight">Contacts</h2>
                 <div className="overflow-x-auto">
                     <table className="w-full p-6 text-xs text-left whitespace-nowrap">
@@ -76,8 +78,8 @@ const MyList = () => {
                                             <p>{p?.countryName}</p>
                                         </td>
                                         <td className="px-3 py-2">
-                                            <span>UI Designer</span>
-                                            <p className="dark:text-gray-600">Spirit Media</p>
+                                            <span>User Name</span>
+                                            <p className="dark:text-gray-600">{p?.userName}</p>
                                         </td>
                                         <td className="px-3 py-2">
                                             <p>{p?.avarageCost} BDT</p>

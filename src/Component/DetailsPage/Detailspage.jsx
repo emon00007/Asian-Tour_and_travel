@@ -31,9 +31,9 @@ const Detailspage = () => {
                         <p className="mt-4 font-bold"><span className="">Travel Time:{spotDet.travelTime} </span> </p>
                         <hr className="w-full py-4 mt-4" />
                         <p className="mt-4 font-bold "><span className="text-gray-500">Location: </span>{spotDet.location} </p>
-                        <p className="mt-4 font-bold "><span className="text-gray-500">Seassonality </span>{spotDet.seassonality} </p>
-                        <p className="mt-4 font-bold "><span className="text-gray-500">Name</span>{spotDet.userName} </p>
-                        <p className="mt-4 font-bold "><span className="text-gray-500">User Email </span>({spotDet?.email}) </p>
+                        <p className="mt-4 font-bold "><span className="text-gray-500">Seassonality: </span>{spotDet.seassonality} </p>
+                        <p className="mt-4 font-bold "><span className="text-gray-500">Name:</span>{spotDet.userName} </p>
+                        <p className="mt-4 font-bold "><span className="text-gray-500">User Email: </span>({spotDet?.email}) </p>
                         
                         <div className="flex gap-4 mt-4">
                            <Link to="/"> <button  className="btn bg-[#00ffa6]">Go To  Home</button></Link>

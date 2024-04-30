@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 import {  useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import Swal from 'sweetalert2'
 const UpdatePost = () => {
     const { id } = useParams(); 
@@ -119,14 +120,16 @@ const UpdatePost = () => {
         .then(res=>res.json())
         .then(data=>{console.log(data)
             if(data.insertedId)
+            toast.success("Update successful!");
             Swal.fire({
-                title: "Update success",
+                title: "success",
                 text: "Do you want to continue",
                 icon: "success",
-                confirmButtonText: "Ok",
+                confirmButtonText: "Cool",
             });
+            
         })
-       
+        
     }
     return (
         <div>
