@@ -135,7 +135,7 @@ const AddturestSport = () => {
             });
             
         })
-       
+        e.target.reset()
     }
 
     return (

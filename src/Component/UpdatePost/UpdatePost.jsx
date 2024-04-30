@@ -129,7 +129,7 @@ const UpdatePost = () => {
             });
             
         })
-        
+        e.target.reset()
     }
     return (
         <div>
