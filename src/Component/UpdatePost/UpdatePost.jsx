@@ -8,6 +8,7 @@ const UpdatePost = () => {
     // const [updatepost, setUpdatePost] = useState({});
     const [availableSpots, setAvailableSpots] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState("");
+    
     // useEffect(() => {
         
     //         .then(res => res.json())
