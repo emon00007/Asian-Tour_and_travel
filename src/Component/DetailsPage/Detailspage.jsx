@@ -13,7 +13,7 @@ const Detailspage = () => {
                 setSpotDet(data);
                 console.log(data);
             });
-    }, [id]); 
+    }, [id]);
 
     return (
         <div>
